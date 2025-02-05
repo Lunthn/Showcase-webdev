@@ -2,18 +2,27 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+    padding: 10%;
 }
 
-.landing-content {
+.landing-content, .landing-image {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
     padding: 20px;
 }
 
-.landing-content h1{
+.landing-content{
+    align-items: start;
+}
 
+.landing-image{
+    align-content: center;
+}
+
+.landing-content h1{
+    font-size: 1.8rem;
 }
 
 .landing-content h1 span {
@@ -21,16 +30,15 @@
 }
 
 .landing-content h2{
-
+    padding-block: 10px;
+    font-size: 1rem;
 }
 
-.landing-content p{
-
-}
-
+/* Check how to do properly and make dynamic/mobile version */
 .landing-image img {
-    width: 100%;
-    height: 100%;
+    width: fit-content;
+    max-width: 600px;
+    min-width: 300px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -39,5 +47,6 @@
 @media (max-width: 768px) {
     section#landing {
         grid-template-columns: 1fr;
+        padding: 10px
     }
 }

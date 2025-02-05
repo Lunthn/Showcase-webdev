@@ -27,6 +27,12 @@
                 </li>
             </ul>
         </nav>
+        <div class="hamburger-menu">
+            <button onclick="toggleMenu()">
+                <i id="hamburger-icon" class='bx bx-menu-alt-right' ></i>
+            </button>
+        </div>
+        
     </header>
 
     <main role="main">
@@ -34,13 +40,26 @@
     </main>
 
     <footer>
-        <div>
+        <p>
             &copy; <span id="copyright-year">2025</span> - Nathan Lupke
-        </div>
+        </p>
+       <div class="socials">
+           <a href="https://www.linkedin.com/in/nathan-lupke-a09a4124b/" target="_blank">
+                <i class='bx bxl-linkedin'></i>
+           </a>
+           <a href="https://www.instagram.com/nathanlupke/" target="_blank">
+                <i class='bx bxl-instagram'></i>
+           </a>
+           <a href="https://github.com/Lunthn" target="_blank">
+                <i class='bx bxl-github'></i>
+           </a>
+              
+       </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/gdpr.js" asp-append-version="true"></script>
+    <script src="~/js/hamburger-menu.js" asp-append-version="true"></script>
 </body>
 </html>
