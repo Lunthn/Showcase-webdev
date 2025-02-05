@@ -5,7 +5,7 @@ namespace Showcase_Profielpagina.Controllers
 {
     public class ContactController : Controller
     {
-        public ActionResult Me()
+        public ActionResult Index()
         {
             return View();
         }
