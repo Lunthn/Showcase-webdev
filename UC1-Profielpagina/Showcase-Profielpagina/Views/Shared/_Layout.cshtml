@@ -14,8 +14,11 @@
         <h2>
             <a asp-area="" asp-controller="Home" asp-action="Index">Nathan Lupke</a>
         </h2>
-        <nav>
+        <nav class="navbar">
             <ul class="header-links">
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
                 <li>
                     <a asp-area="" asp-controller="Skills" asp-action="Index">Ervaring</a>
                 </li>
@@ -41,7 +44,7 @@
 
     <footer>
         <p>
-            &copy; <span id="copyright-year">2025</span> - Nathan Lupke
+            &copy; <span id="copyright-year"></span> - Nathan Lupke
         </p>
        <div class="socials">
            <a href="https://www.linkedin.com/in/nathan-lupke-a09a4124b/" target="_blank">
@@ -58,7 +61,7 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
     <script src="~/js/gdpr.js" asp-append-version="true"></script>
     <script src="~/js/hamburger-menu.js" asp-append-version="true"></script>
 </body>

@@ -3,7 +3,6 @@
 :root {
     --background-color: #16161a;
     --text-color: #e0e0e0;
-    --primary-color: #ef5350;
     --primary-color: #7f5af0;
     --paragraph-color: #a7a9be;
     --button-text: #fff;
@@ -11,14 +10,8 @@
 }
 
 html {
-    font-size: 14px;
+    font-size: 16px;
     scroll-behavior: smooth;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
 }
 
 * {
@@ -34,34 +27,44 @@ body {
     min-height: 100%;
 }
 
-header, footer {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 5%;
+    padding: 20px 5%;
     width: 100%;
     border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color);
+    z-index: 1000;
 }
 
 footer {
-    border-top: 1px solid var(--border-color);
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 5%;
+    border-top: 1px solid var(--border-color);
 }
 
-    footer p {
-        color: white;
-    }
+footer p {
+    color: white;
+    margin-bottom: 10px;
+}
 
-    footer .socials {
-        margin-top: 10px;
-        display: flex;
-        gap: 10px;
-    }
+footer .socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
 
-        footer .socials i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
+footer .socials i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
@@ -81,6 +84,7 @@ p {
 section {
     min-height: 80vh;
     padding-inline: 5%;
+    margin-top: 100px;
 }
 
 #heading {
@@ -100,43 +104,43 @@ button, #btn {
     font-family: 'Montserrat', serif;
 }
 
-nav, .header-links {
+nav {
     display: flex;
     align-items: center;
 }
 
-    .header-links li {
-        list-style: none;
-        margin-left: 40px;
-    }
+.header-links {
+    display: flex;
+    gap: 40px;
+}
 
-        .header-links li:first-child {
-            margin-left: 0;
-        }
+.header-links li {
+    list-style: none;
+}
 
 .hamburger-menu {
     display: none;
 }
 
-    .hamburger-menu button {
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-    }
+.hamburger-menu button {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
 
-        .hamburger-menu button i {
-            font-size: 1.5rem;
-        }
+.hamburger-menu button i {
+    font-size: 1.5rem;
+}
 
 @media (max-width: 768px) {
     html {
-        font-size: 16px;
+        font-size: 14px;
     }
 
-    section, header, footer {
+    section, footer {
         padding-inline: 20px;
     }
 
@@ -144,11 +148,45 @@ nav, .header-links {
         display: block;
     }
 
-    nav {
-        display: none;
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--background-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px;
+        z-index: 1000;
     }
 
-    section, header, footer {
-        padding-inline: 10px;
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--background-color);
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar.active {
+       display: flex;
+    }
+
+    .header-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-links li {
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
     }
 }
