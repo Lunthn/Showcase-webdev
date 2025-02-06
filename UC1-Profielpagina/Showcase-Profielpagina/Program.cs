@@ -13,6 +13,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Security, wants to use https
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

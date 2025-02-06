@@ -94,7 +94,7 @@ section {
     margin-bottom: 2rem;
 }
 
-button, #btn {
+button, .btn {
     background-color: var(--primary-color);
     color: var(--button-text);
     padding: 10px 20px;

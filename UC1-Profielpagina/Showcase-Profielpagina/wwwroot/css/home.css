@@ -34,6 +34,21 @@
     font-size: 1rem;
 }
 
+.landing-buttons{
+    display: flex; 
+    gap: 10px;
+    padding-top: 20px;
+}
+    
+#landing-btn-cta, #landing-btn-cta-alt{
+    font-size: large;
+    border: 2px solid var(--primary-color);
+}
+
+#landing-btn-cta-alt {
+    background-color: transparent;
+}
+
 /* Check how to do properly and make dynamic/mobile version */
 .landing-image img {
     width: fit-content;
