@@ -2,7 +2,7 @@
 
 namespace Showcase_Profielpagina.Controllers
 {
-    public class SkillsController : Controller
+    public class ErvaringController : Controller
     {
         public IActionResult Index()
         {

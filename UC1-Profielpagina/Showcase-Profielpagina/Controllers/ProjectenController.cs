@@ -2,7 +2,7 @@
 
 namespace Showcase_Profielpagina.Controllers
 {
-    public class ProjectsController : Controller
+    public class ProjectenController : Controller
     {
         public IActionResult Index()
         {
