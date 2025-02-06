@@ -42,14 +42,14 @@
     
 #landing-btn-cta, #landing-btn-cta-alt{
     font-size: large;
-    border: 2px solid var(--primary-color);
 }
 
 #landing-btn-cta-alt {
     background-color: transparent;
+    border: 2px solid var(--text-color);
 }
 
-/* Check how to do properly and make dynamic/mobile version */
+/* check how to do properly and make dynamic/mobile version */
 .landing-image img {
     width: fit-content;
     max-width: 600px;
@@ -58,10 +58,14 @@
     border-radius: 10px;
 }
 
-/* Change to mobile view*/
+/* mobile view*/
 @media (max-width: 768px) {
     section#landing {
         grid-template-columns: 1fr;
         padding: 10px
+    }
+
+    #landing-btn-cta, #landing-btn-cta-alt{
+        font-size: small;
     }
 }

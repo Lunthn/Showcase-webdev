@@ -63,7 +63,7 @@ footer .socials {
 
 footer .socials i {
     font-size: 1.8rem;
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -99,7 +99,7 @@ button, .btn {
     color: var(--button-text);
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     font-family: 'Montserrat', serif;
 }
