@@ -44,7 +44,7 @@ i#right {
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: 0;
+    scrollbar-width: none;
 }
 
 .carousel::-webkit-scrollbar {

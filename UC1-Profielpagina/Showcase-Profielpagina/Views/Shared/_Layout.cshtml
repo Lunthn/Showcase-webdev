@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="~/css/gdpr.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/ervaring.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/main.js" asp-append-version="true" defer></script>
+    <script src="~/js/gdpr.js" asp-append-version="true" defer></script>
+    <script src="~/js/hamburger-menu.js" asp-append-version="true" defer></script>
+    <script src="~/js/ervaring.js" asp-append-version="true" defer></script>
 </head>
 <body>
     <header>
@@ -44,6 +49,7 @@
         <p>
             &copy; <span id="copyright-year"></span> - Nathan Lupke
         </p>
+        <a asp-area="" asp-controller="privacy" asp-action="Index">Privacy</a>
        <div class="socials">
            <a href="https://www.linkedin.com/in/nathan-lupke-a09a4124b/" target="_blank">
                 <i class='bx bxl-linkedin'></i>
@@ -58,10 +64,20 @@
        </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/main.js" asp-append-version="true"></script>
-    <script src="~/js/gdpr.js" asp-append-version="true"></script>
-    <script src="~/js/hamburger-menu.js" asp-append-version="true"></script>
-    <script src="~/js/ervaring.js" asp-append-version="true"></script>
+    <div class="gdpr">
+        <div class="gdpr-header">
+            <i class="bx bx-cookie"></i>
+            <h3>Cookiebeleid</h3>
+        </div>
+        <div class="gdpr-content">
+            <p>
+                Deze website maakt gebruik van cookies om de gebruikerservaring te verbeteren. Door op "Accepteren" te klikken, ga je akkoord met het gebruik van cookies. <a asp-area="" asp-controller="privacy" asp-action="Index">Lees meer..</a>
+            </p>
+        </div>
+        <div class="gdpr-buttons">
+            <button id="gdpr-accept" class="gdpr-button">Accepteren</button>
+            <button class="gdpr-button">Weigeren</button>
+        </div>
+    </div>
 </body>
 </html>
