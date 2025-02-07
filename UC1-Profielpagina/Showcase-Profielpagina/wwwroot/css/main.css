@@ -132,14 +132,29 @@ footer p{
     color: white;
 }
 
+footer p a{
+    text-decoration: underline;
+}
+
 footer .socials {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
 
+footer .socials a {
+    font-size: 25px;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
 footer .socials i {
-    font-size: 1.8rem;
     color: var(--text-color);
 }
 
