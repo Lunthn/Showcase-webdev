@@ -69,6 +69,13 @@ section {
     margin-bottom: 2rem;
 }
 
+#subheading{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
 button, .btn {
     background-color: var(--primary-color);
     color: var(--button-text);

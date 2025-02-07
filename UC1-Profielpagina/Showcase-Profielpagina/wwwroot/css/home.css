@@ -49,13 +49,24 @@
     border: 2px solid var(--primary-color);
 }
 
-/* check how to do properly and make dynamic/mobile version */
+.landing-image {
+    border-radius: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .landing-image img {
-    width: fit-content;
-    max-width: 600px;
-    min-width: 300px;
-    object-fit: cover;
-    border-radius: 10px;
+    position: static;
+    width: 25vw;
+    border-radius: 50%;
+}
+
+@media(max-width: 895px){
+    .landing-image img{
+        width: 65vw;
+    }
 }
 
 /* mobile view*/
