@@ -41,6 +41,10 @@ header {
     z-index: 1000;
 }
 
+header span{
+    color: var(--primary-color)
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     font-weight: 700;
@@ -50,6 +54,8 @@ a {
     text-decoration: none;
     color: var(--text-color);
 }
+
+
 
 p {
     color: var(--paragraph-color);
@@ -84,6 +90,10 @@ button, .btn {
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Montserrat', serif;
+}
+
+button:hover, .btn:hover {
+    background-color: #9A7FF5;
 }
 
 nav {

@@ -1,6 +1,6 @@
 ﻿section#landing {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
     gap: 10px;
     padding: 10%;
 }
@@ -22,7 +22,7 @@
 }
 
 .landing-content h1{
-    font-size: 1.8rem;
+    font-size: 4rem;
 }
 
 .landing-content h1 span {
@@ -31,7 +31,7 @@
 
 .landing-content h2{
     padding-block: 10px;
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .landing-buttons{
@@ -61,22 +61,30 @@
     position: static;
     width: 25vw;
     border-radius: 50%;
+    border: 2px solid var(--primary-color);
 }
 
 @media(max-width: 895px){
     .landing-image img{
         width: 65vw;
     }
-}
 
-/* mobile view*/
-@media (max-width: 768px) {
+    .landing-content h1 {
+        font-size: 3rem;
+    }
+
+    .landing-content h2{
+        font-size: 1.5rem;
+    }
+
     section#landing {
         grid-template-columns: 1fr;
         padding: 10px
     }
 
-    #landing-btn-cta, #landing-btn-cta-alt{
+    #landing-btn-cta, #landing-btn-cta-alt {
         font-size: small;
     }
 }
+
+
