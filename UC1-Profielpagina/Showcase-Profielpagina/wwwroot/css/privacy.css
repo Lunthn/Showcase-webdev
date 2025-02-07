@@ -1,0 +1,30 @@
+﻿section#privacy {
+    padding-inline: 25%;
+    list-style: none;
+    color: var(--paragraph-color)
+}
+
+section#privacy h4{
+    margin-block: 12px;
+}
+
+section#privacy ul{
+    margin-left: 20px;
+}
+
+section#privacy li{
+    margin-block: 5px;
+}
+
+section#privacy a {
+   text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    section#privacy {
+        padding-inline: 5%;
+    }
+}
+
+
+

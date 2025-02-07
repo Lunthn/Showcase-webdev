@@ -46,7 +46,7 @@
 
 #landing-btn-cta-alt {
     background-color: transparent;
-    border: 2px solid var(--text-color);
+    border: 2px solid var(--primary-color);
 }
 
 /* check how to do properly and make dynamic/mobile version */
