@@ -1,15 +1,18 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Nathan Lupke</title>
+    <meta name="author" content="Nathan Lupke" />
+    <meta name="description" content="" />
+    <link rel="canonical" href="https://www.nathanlupke.nl/" />
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/gdpr.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/ervaring.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/privacy.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/main.js" asp-append-version="true" defer></script>
     <script src="~/js/gdpr.js" asp-append-version="true" defer></script>
@@ -18,19 +21,28 @@
 </head>
 <body>
     <header>
-        <h2>
+        <h1>
             <a asp-area="" asp-controller="Home" asp-action="Index">Nathan <span>Lupke</span></a>
-        </h2>
+        </h1>
         <nav class="navbar">
             <ul class="header-links">
                 <li>
-                    <a asp-area="" asp-controller="home" asp-action="Index">Home</a>
+                    <a asp-area="" asp-controller="home" asp-action="Index"
+                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "btn" : "")">
+                        Home
+                    </a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="ervaring" asp-action="Index">Ervaring</a>
+                    <a asp-area="" asp-controller="ervaring" asp-action="Index"
+                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Ervaring" ? "btn" : "")">
+                        Ervaring
+                    </a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="contact" asp-action="Index" class="btn">Contact</a>
+                    <a asp-area="" asp-controller="contact" asp-action="Index"
+                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" ? "btn" : "")">
+                        Contact
+                    </a>
                 </li>
             </ul>
         </nav>

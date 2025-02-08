@@ -56,7 +56,6 @@ a {
 }
 
 
-
 p {
     color: var(--paragraph-color);
     line-height: 1.5;
@@ -110,6 +109,11 @@ nav {
     list-style: none;
 }
 
+.header-links li a{
+    padding: 10px 20px;
+}
+
+
 .hamburger-menu {
     display: none;
 }
@@ -121,6 +125,7 @@ nav {
     align-items: center;
     width: 40px;
     height: 40px;
+    background-color: transparent;
 }
 
 .hamburger-menu button i {
