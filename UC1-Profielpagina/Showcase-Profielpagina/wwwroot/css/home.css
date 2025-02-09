@@ -34,6 +34,14 @@
     font-size: 2rem;
 }
 
+#dynamic-subheading {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
 .landing-buttons{
     display: flex; 
     gap: 10px;
