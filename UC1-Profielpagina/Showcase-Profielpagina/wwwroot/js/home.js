@@ -2,7 +2,7 @@
     const subheading = document.getElementById("dynamic-subheading");
     const subheadings = [
         "Web Developer",
-        "UI UX Designer",
+        "UI-UX Designer",
         "Software Engineer"
     ];
     let index = 0;
@@ -13,7 +13,7 @@
             index = (index + 1) % subheadings.length;
             subheading.textContent = subheadings[index];
             subheading.classList.remove("fade-out"); 
-        }, 500); 
+        }, 800); 
     }
 
     setInterval(changeSubheading, 3000); 

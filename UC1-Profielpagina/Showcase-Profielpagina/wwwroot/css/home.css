@@ -3,6 +3,7 @@
     grid-template-columns: 60% 40%;
     gap: 10px;
     padding: 10%;
+    margin-top: 50px;
 }
 
 .landing-content, .landing-image {
@@ -21,8 +22,9 @@
     align-content: center;
 }
 
-.landing-content h1{
+.landing-content h1 {
     font-size: 4rem;
+/*    padding-block: 10px;*/
 }
 
 .landing-content h1 span {
@@ -30,7 +32,7 @@
 }
 
 .landing-content h2{
-    padding-block: 10px;
+/*    padding-block: 10px;*/
     font-size: 2rem;
 }
 
@@ -85,6 +87,7 @@
     }
 
     section#home {
+        margin-top: 150px;
         grid-template-columns: 1fr;
         padding: 10px
     }
