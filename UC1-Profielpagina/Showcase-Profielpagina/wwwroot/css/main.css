@@ -2,11 +2,15 @@
 
 :root {
     --background-color: #16161a;
+    --card-color: #222228;
+    --card-span: #2a2a30;
     --text-color: #e0e0e0;
     --primary-color: #7f5af0;
+    --primary-color-hover: #9A7FF5;
     --paragraph-color: #a7a9be;
     --button-text: #fff;
     --border-color: #333;
+    --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 html {
@@ -65,6 +69,7 @@ section {
     min-height: 80vh;
     padding-inline: 5%;
     margin-top: 100px;
+    margin-bottom: 50px;
 }
 
 #heading {
@@ -89,10 +94,6 @@ button, .btn {
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Montserrat', serif;
-}
-
-button:hover, .btn:hover {
-    background-color: #9A7FF5;
 }
 
 nav {

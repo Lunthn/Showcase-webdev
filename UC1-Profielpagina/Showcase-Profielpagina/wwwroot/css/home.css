@@ -1,4 +1,4 @@
-﻿section#landing {
+﻿section#home {
     display: grid;
     grid-template-columns: 60% 40%;
     gap: 10px;
@@ -61,7 +61,6 @@
     position: static;
     width: 25vw;
     border-radius: 50%;
-    border: 2px solid var(--primary-color);
 }
 
 @media(max-width: 895px){
@@ -77,7 +76,7 @@
         font-size: 1.5rem;
     }
 
-    section#landing {
+    section#home {
         grid-template-columns: 1fr;
         padding: 10px
     }
