@@ -4,6 +4,40 @@
 
 <section id="contact">
     <h2 id="heading">Contact</h2>
+    <div class="contact-container">
+        <form id="contact-form" method="post">
+            <p>
+                Voel je vrij om contact met me op te nemen! Dit kan eenvoudig via
+                het formulier hieronder of door me een bericht te sturen op
+                <a href="https://discordapp.com/users/536527650647179275/"
+                   target="_blank">Discord</a>.
+            </p>
+
+            <em id="form-status"></em>
+
+            <div class="input-control">
+                <label for="name">Naam</label>
+                <input type="text" id="name" name="name" />
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" />
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="subject">Onderwerp</label>
+                <input type="text" id="subject" name="subject" />
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="message">Bericht</label>
+                <textarea id="textarea-message" name="message"></textarea>
+                <div class="error"></div>
+            </div>
+            <button type="submit" id="submit">Verzenden</button>
+        </form>
+    </div>
 </section>
 
 
