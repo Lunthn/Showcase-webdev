@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+#contact-form p{
+    margin-bottom: 10px;
+}
+
 #contact-form {
     min-width: 300px;
     width: 500px;
@@ -52,6 +56,10 @@
         font-size: large;
     }
 
+    em#form-status{
+        margin-top: 20px;
+    }
+
     .input-control textarea {
         min-height: 100px;
     }
@@ -65,7 +73,4 @@
     }
 
 
-#contact-form em#form-status {
-   color: var(--text-color);
-   font-style: normal;
-}
+

@@ -4,3 +4,4 @@ const copyrightYearLabel = document.getElementById('copyright-year');
 document.addEventListener('DOMContentLoaded', () => {
     copyrightYearLabel.innerText = new Date().getFullYear();
 });
+
