@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Showcase_Profielpagina.Controllers
+namespace PortfolioNathan.Controllers
 {
     public class ContactController : Controller
     {

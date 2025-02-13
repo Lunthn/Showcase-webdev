@@ -1,4 +1,5 @@
-﻿const form = document.getElementById("contact-form");
+﻿
+const form = document.getElementById("contact-form");
 const formName = document.getElementById("name");
 const formEmail = document.getElementById("email");
 const formMessage = document.getElementById("textarea-message");
@@ -48,8 +49,9 @@ const validateInputs = () => {
         setError(formName, "Naam mag niet leeg zijn");
         allValid = false;
     }
-    else if (nameValue) {
-        //length
+    else if (nameValue.length > 60) {
+        setError(formName, "Naam mag niet langer zijn dan 60 karakters");
+        allValid = false;
     }
 
     else {
@@ -69,8 +71,9 @@ const validateInputs = () => {
         allValid = false;
     }
 
-    else if (subjectValue) {
-        //length
+    else if (subjectValue.length > 200) {
+        setError(formSubject, "Onderwerp mag niet langer zijn dan 200 karakters");
+        allValid = false;
     }
 
     else {
@@ -81,8 +84,9 @@ const validateInputs = () => {
         allValid = false;
     }
 
-    else if (messageValue) {
-        //length
+    else if (messageValue.length > 600) {
+        setError(formMessage, "Bericht mag niet langer zijn dan 600 karakters");
+        allValid = false;
     }
 
     else {
@@ -90,20 +94,26 @@ const validateInputs = () => {
     }
 
     if (allValid) {
-        formStatus.innerText = "";
-        formStatus.innerText = "Aan het denken..";
+        formStatus.innerText = "Aan het verzenden...";
 
-        fetch("", {
+        fetch("/api/Mail", {
             method: "POST",
-            body: new FormData(form),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                Name: nameValue,
+                Email: emailValue,
+                Subject: subjectValue,
+                Message: messageValue,
+            }),
         })
-            .then((response) => {
-                return response.text().then((data) => ({ ok: response.ok, data }));
-            })
+            .then((response) => response.text().then((data) => ({ ok: response.ok, data })))
             .then(({ ok, data }) => {
                 formStatus.innerHTML = "";
                 if (ok) {
                     formStatus.innerText = "Email is verstuurd!";
+                    form.reset();
                 } else {
                     formStatus.innerText = "Email niet verstuurd: " + data;
                 }
@@ -112,7 +122,5 @@ const validateInputs = () => {
                 formStatus.innerHTML = "";
                 formStatus.innerText = "Error: " + error.message;
             });
-    } else {
-        formStatus.innerText = "";
     }
 };

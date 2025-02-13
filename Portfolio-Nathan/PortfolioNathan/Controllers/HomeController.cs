@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Showcase_Profielpagina.Models;
+using PortfolioNathan.Models;
 using System.Diagnostics;
 
-namespace Showcase_Profielpagina.Controllers
+namespace PortfolioNathan.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,4 +1,4 @@
-namespace Showcase_Profielpagina.Models
+namespace PortfolioNathan.Models
 {
     public class ErrorViewModel
     {

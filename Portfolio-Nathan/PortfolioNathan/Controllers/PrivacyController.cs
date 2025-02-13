@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Showcase_Profielpagina.Controllers
+namespace PortfolioNathan.Controllers
 {
-    public class ErvaringController : Controller
+    public class PrivacyController : Controller
     {
         public IActionResult Index()
         {

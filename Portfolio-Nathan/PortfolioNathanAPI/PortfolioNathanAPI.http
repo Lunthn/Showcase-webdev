@@ -1,0 +1,6 @@
+@PortfolioNathanAPI_HostAddress = http://localhost:5197
+
+GET {{PortfolioNathanAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
