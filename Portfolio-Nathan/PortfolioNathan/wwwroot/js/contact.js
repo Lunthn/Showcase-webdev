@@ -4,6 +4,7 @@ const formEmail = document.getElementById("email");
 const formMessage = document.getElementById("textarea-message");
 const formSubject = document.getElementById("subject");
 const formStatus = document.getElementById("form-status");
+const formCaptcha = document.getElementById("captcha");
 
 // check if mail api is responding
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("error with mail API:", error);
         });
 });
+
+
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -98,6 +102,14 @@ const validateInputs = () => {
         setSuccess(formMessage);
     }
 
+    if (!grecaptcha.getResponse() > 0) {
+        setError(formCaptcha, "Captcha is niet ingevuld");
+        allValid = false;
+    }
+    else {
+        setSuccess(formCaptcha);
+    }
+
     if (allValid) {
         formStatus.innerText = "Aan het verzenden...";
 
@@ -111,6 +123,7 @@ const validateInputs = () => {
                 Email: emailValue,
                 Subject: subjectValue,
                 Message: messageValue,
+                CaptchaResponse: grecaptcha.getResponse(),
             }),
         })
             .then((response) => response.text().then((data) => ({ ok: response.ok, data })))
@@ -120,12 +133,12 @@ const validateInputs = () => {
                     formStatus.innerText = "Email is verstuurd!";
                     form.reset();
                 } else {
-                    formStatus.innerText = "Email niet verstuurd: " + data;
+                    formStatus.innerText = "Email niet verstuurd: " + data.toLowerCase();
                 }
             })
             .catch((error) => {
                 formStatus.innerHTML = "";
-                formStatus.innerText = "Error: " + error.message;
+                formStatus.innerText = "Fout: " + error.message.toLowerCase();
             });
     }
 };

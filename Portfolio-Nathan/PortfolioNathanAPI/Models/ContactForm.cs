@@ -19,5 +19,6 @@ namespace PortfolioNathanAPI.Models
         [Required]
         [StringLength(600)]
         public string Message { get; set; }
+        public string CaptchaResponse { get; set; }
     }
 }

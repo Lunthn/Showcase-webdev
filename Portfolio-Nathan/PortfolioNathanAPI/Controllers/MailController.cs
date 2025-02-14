@@ -16,6 +16,21 @@ namespace PortfolioNathanAPI.Controllers
             _configuration = configuration;
         }
 
+        private async Task<bool> ValidateCaptcha(string captchaResponse)
+        {
+            using (var client = new HttpClient())
+            {
+                var secretKey = _configuration["Recaptcha:SecretKey"];
+                var response = await client.PostAsync(
+                    $"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={captchaResponse}",
+                    null);
+
+                var jsonString = await response.Content.ReadAsStringAsync();
+                return jsonString.Contains("\"success\": true");
+            }
+        }
+
+
         [HttpGet]
         public ActionResult<string> Get()
         {
@@ -25,9 +40,15 @@ namespace PortfolioNathanAPI.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] ContactForm form)
         {
-            if (form == null)
+            if (form == null || string.IsNullOrWhiteSpace(form.CaptchaResponse))
             {
-                return BadRequest();
+                return BadRequest("captcha is required");
+            }
+
+            bool isCaptchaValid = await ValidateCaptcha(form.CaptchaResponse);
+            if (!isCaptchaValid)
+            {
+                return BadRequest("invalid captcha");
             }
 
             var smtpSettings = _configuration.GetSection("SmtpSettings");
@@ -35,11 +56,8 @@ namespace PortfolioNathanAPI.Controllers
             var port = smtpSettings.GetValue<int>("Port");
             var username = smtpSettings.GetValue<string>("Username");
             var password = smtpSettings.GetValue<string>("Password");
-            var fromEmail = form.Email; 
+            var fromEmail = form.Email;
             var toEmail = smtpSettings.GetValue<string>("ToEmail");
-            string subject = form.Subject;
-            string body = form.Message;
-            string name = form.Name;
 
             try
             {
@@ -48,13 +66,12 @@ namespace PortfolioNathanAPI.Controllers
                     Credentials = new NetworkCredential(username, password),
                     EnableSsl = true
                 };
-                client.Send(fromEmail, toEmail, subject, body);
-                return Ok("email sent successfully");
+                client.Send(fromEmail, toEmail, form.Subject, form.Message);
+                return Ok("e-mail send");
             }
             catch (Exception ex)
             {
-               
-                return StatusCode(500, (ex.Message).ToLower());
+                return StatusCode(500, "error sending: " + (ex.Message).ToLower());
             }
         }
     }

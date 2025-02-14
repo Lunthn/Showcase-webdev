@@ -41,6 +41,7 @@
 
     .input-control label {
         margin-block: 10px;
+        font-weight: bold;
     }
 
     .input-control input, .input-control textarea {
@@ -71,6 +72,12 @@
     .input-control.error input, .input-control.error textarea {
         border-color: red;
     }
+
+.g-recaptcha {
+    margin-top: 10px;
+}
+
+
 
 
 
