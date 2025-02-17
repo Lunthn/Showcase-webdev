@@ -42,7 +42,7 @@
 .bar span{
     height: 20px;
     float: left;
-    background: var(--primary-color)
+    background: var(--gradient-primary);
 }
 
 .html{

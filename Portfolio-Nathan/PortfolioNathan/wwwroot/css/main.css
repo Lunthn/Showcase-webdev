@@ -6,6 +6,7 @@
     --card-span: #2a2a30;
     --text-color: #e0e0e0;
     --primary-color: #7f5af0;
+    --gradient-primary: linear-gradient(45deg, #9A7FF5, #6B4EAE, #4F3A8C);
     --primary-color-hover: #9A7FF5;
     --paragraph-color: #a7a9be;
     --button-text: #fff;
@@ -95,6 +96,10 @@ button, .btn {
     cursor: pointer;
     font-family: 'Montserrat', serif;
 }
+
+    button:hover, .btn:hover {
+        background-color: var(--primary-color-hover);
+    }
 
 nav {
     display: flex;

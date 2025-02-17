@@ -34,7 +34,7 @@ namespace PortfolioNathanAPI.Controllers
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return Ok("API is responding");
+            return Ok("mail api is responding");
         }
 
         [HttpPost]
