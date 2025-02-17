@@ -29,19 +29,19 @@
             <ul class="header-links">
                 <li>
                     <a asp-area="" asp-controller="home" asp-action="Index"
-                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "btn" : "")">
+                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
                         Home
                     </a>
                 </li>
                 <li>
                     <a asp-area="" asp-controller="ervaring" asp-action="Index"
-                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Ervaring" ? "btn" : "")">
+                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Ervaring" ? "active" : "")">
                         Ervaring
                     </a>
                 </li>
                 <li>
                     <a asp-area="" asp-controller="contact" asp-action="Index"
-                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" ? "btn" : "")">
+                       class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" ? "active" : "")">
                         Contact
                     </a>
                 </li>

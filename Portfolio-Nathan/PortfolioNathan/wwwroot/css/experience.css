@@ -1,6 +1,8 @@
-﻿.skills-container h4{
+﻿.skills-container h4, .skill-percentage{
     margin: 5px;
 }
+
+
 
 .skills-container{
     max-width: 500px;
@@ -22,7 +24,6 @@
     display: flex;
     justify-content: flex-start;
     align-content: center;
-    height: 40px;
 }
 
 .skills-container i{
@@ -101,7 +102,7 @@
     }
 
     100% {
-        width: 55%;;
+        width: 55%;
     }
 }
 
@@ -135,6 +136,11 @@ i#right {
     transform: translateY(-50%);
     box-shadow: var(--box-shadow);
     color: white;
+    transition: all 0.3s ease;
+}
+
+i#left:hover, i#right:hover{
+    background-color: var(--primary-color-hover);
 }
 
 .wrapper i:first-child {
@@ -220,6 +226,11 @@ i#right {
     margin-top: auto;
     align-self: flex-start;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.card a:hover{
+    background: var(--primary-color-hover);
 }
 
 .card .icons {
@@ -235,6 +246,7 @@ i#right {
 .card p {
     margin-top: 10px;
     margin-bottom: 20px;
+    text-overflow: ellipsis;
 }
 
 

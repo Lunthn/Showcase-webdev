@@ -67,7 +67,7 @@ p {
 }
 
 section {
-    min-height: 80vh;
+    min-height: 90vh;
     padding-inline: 5%;
     margin-top: 100px;
     margin-bottom: 50px;
@@ -87,19 +87,6 @@ section {
     margin-bottom: 1.5rem;
 }
 
-button, .btn {
-    background-color: var(--primary-color);
-    color: var(--button-text);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Montserrat', serif;
-}
-
-    button:hover, .btn:hover {
-        background-color: var(--primary-color-hover);
-    }
 
 nav {
     display: flex;
@@ -115,9 +102,39 @@ nav {
     list-style: none;
 }
 
-.header-links li a{
+    .header-links li a {
+        padding: 10px 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .header-links li a:hover{
+        background: var(--card-color);
+    }
+
+
+    .header-links li a.active{
+        background-color: var(--primary-color);
+    }
+
+    .header-links li a.active:hover{
+        background:var(--primary-color-hover);
+    }
+
+button, .btn {
+    background-color: var(--primary-color);
+    color: var(--button-text);
     padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Montserrat', serif;
+    transition: all 0.3s ease;
 }
+
+    button:hover, .btn:hover {
+        background-color: var(--primary-color-hover);
+    }
 
 
 .hamburger-menu {
@@ -150,7 +167,7 @@ footer {
 }
 
 footer p{
-    color: white;
+    color: var(--text-color);
 }
 
 footer p a{
@@ -164,20 +181,25 @@ footer .socials {
 }
 
 footer .socials a {
-    font-size: 25px;
     width: 42px;
     height: 42px;
     line-height: 42px;
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
     border-radius: 50%;
     margin: 0 10px;
+    transition: all 0.3s ease;
 }
 
-footer .socials i {
-    color: var(--text-color);
+footer .socials a:hover{
+    background: var(--card-color);
 }
+
+    footer .socials i {
+        color: var(--text-color);
+        font-size: 1.5rem;
+    }
 
 @media (max-width: 768px) {
     html {
