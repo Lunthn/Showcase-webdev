@@ -1,22 +1,10 @@
-﻿const form = document.getElementById("contact-form");
-const formName = document.getElementById("name");
-const formEmail = document.getElementById("email");
-const formMessage = document.getElementById("textarea-message");
-const formSubject = document.getElementById("subject");
-const formStatus = document.getElementById("form-status");
-const formCaptcha = document.getElementById("captcha");
-
-
-const setCookie = (name, value, days) => {
-    if (!document.cookie.includes("gdpr=accepted")) return; 
-    let expires = "";
-    if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
-};
+﻿const form = document.getElementById("contact-form"),
+    formName = document.getElementById("name"),
+    formEmail = document.getElementById("email"),
+    formMessage = document.getElementById("textarea-message"),
+    formSubject = document.getElementById("subject"),
+    formStatus = document.getElementById("form-status"),
+    formCaptcha = document.getElementById("captcha");
 
 const getCookie = (name) => {
     const cookies = document.cookie.split("; ");
@@ -29,58 +17,29 @@ const getCookie = (name) => {
     return "";
 };
 
+const saveFormData = () => {
+    if (getCookie("gdpr") === "accepted") {
+        localStorage.setItem("form_name", formName.value);
+        localStorage.setItem("form_email", formEmail.value);
+        document.cookie = `form_subject=${encodeURIComponent(formSubject.value)}; path=/; max-age=86400`;
+        document.cookie = `form_message=${encodeURIComponent(formMessage.value)}; path=/; max-age=86400`;
+    }
+};
+
 const restoreFormData = () => {
-    formName.value = getCookie("form_name") || "";
-    formEmail.value = getCookie("form_email") || "";
-    formSubject.value = getCookie("form_subject") || "";
-    formMessage.value = getCookie("form_message") || "";
+    if (getCookie("gdpr") === "accepted") {
+        formName.value = localStorage.getItem("form_name") || "";
+        formEmail.value = localStorage.getItem("form_email") || "";
+        formSubject.value = getCookie("form_subject") || "";
+        formMessage.value = getCookie("form_message") || "";
+    }
 };
 
 [formName, formEmail, formSubject, formMessage].forEach((input) => {
-    input.addEventListener("keyup", () => {
-        setCookie("form_name", formName.value, 7);
-        setCookie("form_email", formEmail.value, 7);
-        setCookie("form_subject", formSubject.value, 7);
-        setCookie("form_message", formMessage.value, 7);
-    });
+    input.addEventListener("keyup", saveFormData);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    restoreFormData();
-});
-
-// check if mail api is responding
-document.addEventListener("DOMContentLoaded", () => {
-    fetch("https://localhost:7239/api/mail/")
-        .then(response => {
-            if (!response.ok) {
-                console.log("error with mail API:", response.status);
-            }
-            return response.text();
-        })
-        .then(data => {
-            console.log("response from mail API:", data);
-        })
-        .catch(error => {
-            console.error("error with mail API:", error);
-        });
-});
-
-
-
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    validateInputs();
-});
-
-const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector(".error");
-    errorDisplay.innerText = message;
-    inputControl.classList.remove("success");
-    inputControl.classList.add("error");
-};
+document.addEventListener("DOMContentLoaded", restoreFormData);
 
 const validateEmail = (email) => {
     return String(email)
@@ -88,6 +47,14 @@ const validateEmail = (email) => {
         .match(
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         );
+};
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector(".error");
+    errorDisplay.innerText = message;
+    inputControl.classList.remove("success");
+    inputControl.classList.add("error");
 };
 
 const setSuccess = (element) => {
@@ -148,47 +115,41 @@ const validateInputs = () => {
     if (!grecaptcha.getResponse() > 0) {
         setError(formCaptcha, "Captcha is niet ingevuld");
         allValid = false;
-    }
-    else {
+    } else {
         setSuccess(formCaptcha);
     }
 
-    if (allValid) {
+    return allValid;
+};
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (validateInputs()) {
         formStatus.innerText = "Aan het verzenden...";
 
         fetch("https://localhost:7239/api/mail/", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                Name: nameValue,
-                Email: emailValue,
-                Subject: subjectValue,
-                Message: messageValue,
+                Name: formName.value,
+                Email: formEmail.value,
+                Subject: formSubject.value,
+                Message: formMessage.value,
                 CaptchaResponse: grecaptcha.getResponse(),
             }),
         })
             .then((response) => response.text().then((data) => ({ ok: response.ok, data })))
             .then(({ ok, data }) => {
-                formStatus.innerHTML = "";
+                formStatus.innerText = ok ? "Email is verstuurd!" : "Email niet verstuurd: " + data.toLowerCase();
                 if (ok) {
-                    formStatus.innerText = "Email is verstuurd!";
-                    // clear these cookies
                     document.cookie = "form_subject=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                     document.cookie = "form_message=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
                     form.reset();
-
-                    formName.value = getCookie("form_name") || "";
-                    formEmail.value = getCookie("form_email") || "";
-                } else {
-                    formStatus.innerText = "Email niet verstuurd: " + data.toLowerCase();
+                    restoreFormData();
                 }
             })
             .catch((error) => {
-                formStatus.innerHTML = "";
                 formStatus.innerText = "Fout: " + error.message.toLowerCase();
             });
     }
-};
+});
