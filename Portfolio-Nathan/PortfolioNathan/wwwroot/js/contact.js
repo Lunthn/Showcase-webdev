@@ -6,6 +6,49 @@ const formSubject = document.getElementById("subject");
 const formStatus = document.getElementById("form-status");
 const formCaptcha = document.getElementById("captcha");
 
+
+const setCookie = (name, value, days) => {
+    if (!document.cookie.includes("gdpr=accepted")) return; 
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+};
+
+const getCookie = (name) => {
+    const cookies = document.cookie.split("; ");
+    for (let i = 0; i < cookies.length; i++) {
+        const [cookieName, cookieValue] = cookies[i].split("=");
+        if (cookieName === name) {
+            return decodeURIComponent(cookieValue);
+        }
+    }
+    return "";
+};
+
+const restoreFormData = () => {
+    formName.value = getCookie("form_name") || "";
+    formEmail.value = getCookie("form_email") || "";
+    formSubject.value = getCookie("form_subject") || "";
+    formMessage.value = getCookie("form_message") || "";
+};
+
+[formName, formEmail, formSubject, formMessage].forEach((input) => {
+    input.addEventListener("keyup", () => {
+        setCookie("form_name", formName.value, 7);
+        setCookie("form_email", formEmail.value, 7);
+        setCookie("form_subject", formSubject.value, 7);
+        setCookie("form_message", formMessage.value, 7);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    restoreFormData();
+});
+
 // check if mail api is responding
 document.addEventListener("DOMContentLoaded", () => {
     fetch("https://localhost:7239/api/mail/")
@@ -131,7 +174,14 @@ const validateInputs = () => {
                 formStatus.innerHTML = "";
                 if (ok) {
                     formStatus.innerText = "Email is verstuurd!";
+                    // clear these cookies
+                    document.cookie = "form_subject=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    document.cookie = "form_message=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
                     form.reset();
+
+                    formName.value = getCookie("form_name") || "";
+                    formEmail.value = getCookie("form_email") || "";
                 } else {
                     formStatus.innerText = "Email niet verstuurd: " + data.toLowerCase();
                 }
