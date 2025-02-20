@@ -1,74 +1,73 @@
 .gdpr {
-    position: fixed;
-    bottom: 20px;
-    max-width: 345px;
-    width: 100%;
-    border-radius: 15px;
-    background-color: var(--card-color);
-    padding: 15px 25px 22px ;
-    transition: right 0.3s ease;
-    right: -370px;
-    box-shadow: var(--box-shadow);
+  position: fixed;
+  bottom: 20px;
+  max-width: 345px;
+  width: 100%;
+  border-radius: 15px;
+  background-color: var(--card-color);
+  padding: 15px 25px 22px;
+  transition: right 0.3s ease;
+  right: -370px;
+  box-shadow: var(--box-shadow);
 }
 
-.gdpr.show{
-    right: 20px;
+.gdpr.show {
+  right: 20px;
 }
 
 .gdpr-header {
-    display: flex;
-    column-gap: 15px;
-    align-items: center;
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
 }
 .gdpr-header i {
-    color: var(--primary-color);
-    font-size: 1.8rem;
+  color: var(--primary-color);
+  font-size: 1.8rem;
 }
 
-.gdpr-header h2{
-    font-weight: 500;
+.gdpr-header h2 {
+  font-weight: 500;
 }
 
-.gdpr-content{
-    margin-top: 10px;
+.gdpr-content {
+  margin-top: 10px;
 }
 
-.gdpr-content p{
-    font-size: 16px;
+.gdpr-content p {
+  font-size: 16px;
 }
 
 .gdpr-buttons {
-    margin-top: 16px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
 .gdpr-buttons button {
-    width: calc(100% / 2 - 10px);
-    padding: 8px 0;
-
+  width: calc(100% / 2 - 10px);
+  padding: 8px 0;
 }
 
 @media (max-width: 768px) {
-    .gdpr.show{
-        right: 5px;
-    }
+  .gdpr.show {
+    right: 5px;
+  }
 
-    .gdpr-header h2{
-        font-size: 300;
-    }
+  .gdpr-header h2 {
+    font-size: 300;
+  }
 
-    .gdpr-header i{
-        font-size: 1.2rem;
-    }
+  .gdpr-header i {
+    font-size: 1.2rem;
+  }
 
-    .gdpr-content p{
-        font-size: 12px;
-    }
+  .gdpr-content p {
+    font-size: 12px;
+  }
 
-    .gdpr-buttons button{
-        font-size: smaller;
-    }
+  .gdpr-buttons button {
+    font-size: smaller;
+  }
 }

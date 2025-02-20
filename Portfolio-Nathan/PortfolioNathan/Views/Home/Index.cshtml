@@ -3,25 +3,43 @@
 }
 
 <section id="home">
-    <div class="landing-content">
+    <div class="landing page">
+        <div class="landing-content hidden">
 
-        <h2 id="dynamic-subheading">Software Engineer</h2>
-        <h1>Hallo, ik ben <span>Nathan</span></h1>
-        <p>
-            Gepassioneerd door softwareontwikkeling en altijd op zoek naar nieuwe uitdagingen. Ik bouw, leer en experimenteer met technologie om de beste oplossingen te creëren.
-        </p>
-        <div class="landing-buttons">
-            <a asp-area="" asp-controller="contact" asp-action="Index" class="btn" id="landing-btn-cta">Contact opnemen</a>
-            <a asp-area="" asp-controller="ervaring" asp-action="Index" class="btn" id="landing-btn-cta-alt">Meer lezen</a>
+            <h2 id="dynamic-subheading">Software Engineer</h2>
+            <h1>Hallo, ik ben <span>Nathan</span></h1>
+            <p>
+                Gepassioneerd door softwareontwikkeling en altijd op zoek naar nieuwe uitdagingen. Ik bouw, leer en experimenteer met technologie om de beste oplossingen te creëren.
+            </p>
+            <div class="landing-buttons">
+                <a asp-area="" asp-controller="contact" asp-action="Index" class="btn" id="landing-btn-cta">Contact opnemen</a>
+                <a asp-area="" asp-controller="ervaring" asp-action="Index" class="btn" id="landing-btn-cta-alt">Meer lezen</a>
+            </div>
+        </div>
+
+        <div class="landing-image hidden"> 
+            <div class="landing-blob">
+                <img src="/images/Profile-picture 2 (no-bg).png" alt="Profielfoto Nathan" />
+            </div>
+        </div>
+
+    </div>
+
+    <h2 id="heading" class="about-heading hidden">Over mij</h2>
+    <div class="about">
+
+        <div class="about-card hidden">
+            
+        </div>
+        <div class="about-content hidden">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas rutrum vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse                  pretium ac dolor ac feugiat. Sed non tempor neque, ac porta ligula. Morbi ipsum turpis, ultricies non molestie quis, placerat nec arcu. Vivamus congue et massa et viverra. Nulla eget risus nec dui porttitor euismod quis    quis              lectus. Cras quam leo, blandit in accumsan eu, pretium eu dolor. Nulla sed sapien iaculis, fringilla quam a, convallis orci
+         </p>
+         @* <a asp-area="" asp-controller="ervaring" asp-action="Index" class="btn" id="about-btn">Ervaring</a> *@
+
         </div>
     </div>
 
-    <div class="landing-image"> 
-        <div class="landing-blob">
-            <img src="/images/Profile-picture 2 (no-bg).png" alt="Profielfoto Nathan" />
-        </div>
-    </div>
-
+    
     <script src="~/js/home.js"></script>    
 </section>
 
