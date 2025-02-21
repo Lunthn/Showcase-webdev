@@ -5,6 +5,14 @@
 <section id="contact">
     <h2 id="heading" class="hidden">Contact</h2>
     <div class="contact-container hidden">
+
+        <div id="success-overlay" class="hidden">
+            <div class="success-message">
+                <i class='bx bxs-check-circle'></i>
+                <p>Bericht is verstuurd!</p>
+            </div>
+        </div>
+
         <form id="contact-form" method="post">
             <p>
                 Voel je vrij om contact met me op te nemen! Dit kan eenvoudig via
@@ -39,6 +47,7 @@
                 <div class="g-recaptcha" id="captcha" data-theme="dark" data-sitekey="6LcsG9cqAAAAAEJhDwX9QmENLndMotxNKcJfyF7d"></div>
                 <div class="error"></div>
                 <button type="submit" id="submit">Verzenden</button>
+            </div>
         </form>
     </div>
     <script src="~/js/contact.js" asp-append-version="true" defer></script>

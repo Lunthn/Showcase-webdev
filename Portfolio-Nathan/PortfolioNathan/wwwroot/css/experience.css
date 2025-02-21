@@ -106,9 +106,9 @@
 
 /* projects div */
 .projects-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
@@ -182,7 +182,6 @@ i#right:hover {
   cursor: grabbing;
   user-select: none;
 }
-
 
 .carousel .card {
   scroll-snap-align: start;

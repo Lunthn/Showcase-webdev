@@ -19,8 +19,8 @@ html {
   scroll-behavior: smooth;
 }
 
-.page{
-    min-height: 88vh;
+.page {
+  min-height: 88vh;
 }
 
 * {
@@ -81,21 +81,21 @@ section {
 }
 
 .hidden {
-    opacity: 0;
-    transition: all 0.5s;
-    transform: translateX(-100px);
+  opacity: 0;
+  transition: all 0.5s;
+  transform: translateX(-100px);
 }
 
-@media(prefers-reduced-motion){
-    .hidden{
-        transition: none;
-        transform:translateX(0);
-    }
-}
-
-.show{
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
     transform: translateX(0);
-    opacity: 1;
+  }
+}
+
+.show {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 #heading {
@@ -281,4 +281,3 @@ footer .socials i {
     text-align: center;
   }
 }
-
